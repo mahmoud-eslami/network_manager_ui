@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:bottom_animation/bottom_animation.dart';
+import 'package:mobile_network_ui/resource/colors/colors.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -24,17 +25,21 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColor.background,
       bottomNavigationBar: BottomAnimation(
         items: items,
-        iconSize: 20,
+        iconSize: 26,
         itemHoverWidth: 130,
         textStyle: TextStyle(
-          color: Colors.deepPurpleAccent,
+          color: AppColor.blue,
         ),
-        activeIconColor: Colors.deepPurple,
-        backgroundColor: Colors.white,
-        deactiveIconColor: Colors.purple,
-        itemHoverColor: Colors.purple,
+        activeIconColor: AppColor.blue,
+        backgroundColor: AppColor.background,
+        deactiveIconColor: AppColor.lightIndigo,
+        itemHoverColor: AppColor.lightIndigo,
+        itemHoverColorOpacity: .9,
+        itemHoverBorderRadius: 30,
+        itemHoverHeight: 45,
         onItemSelect: (int value) {
           setState(() {
             index = value;
