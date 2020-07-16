@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:bottom_animation/bottom_animation.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:mobile_network_ui/resource/colors/colors.dart';
 
 class Home extends StatefulWidget {
@@ -28,11 +29,14 @@ class _HomeState extends State<Home> {
       backgroundColor: AppColor.background,
       bottomNavigationBar: BottomAnimation(
         items: items,
+        textStyle: GoogleFonts.lato(
+          textStyle: TextStyle(
+            color: AppColor.blue,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
         iconSize: 26,
         itemHoverWidth: 130,
-        textStyle: TextStyle(
-          color: AppColor.blue,
-        ),
         activeIconColor: AppColor.blue,
         backgroundColor: AppColor.background,
         deactiveIconColor: AppColor.lightIndigo,
@@ -41,11 +45,93 @@ class _HomeState extends State<Home> {
         itemHoverBorderRadius: 30,
         itemHoverHeight: 45,
         onItemSelect: (int value) {
-          setState(() {
-            index = value;
-          });
+          // setState(() {
+          //   index = value;
+          // });
         },
         selectedIndex: index,
+      ),
+      body: DynamicBody(),
+    );
+  }
+}
+
+class DynamicBody extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: SingleChildScrollView(
+        child: Container(
+          child: Column(
+            children: [
+              Row(
+                children: [
+                  CircleAvatar(),
+                  Column(
+                    children: [
+                      Text('data'),
+                      Text('data'),
+                    ],
+                  ),
+                ],
+              ),
+              Container(
+                color: Colors.green,
+                height: 100,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Container(
+                    color: Colors.blue,
+                    width: 100,
+                    height: 150,
+                  ),
+                  Container(
+                    color: Colors.yellow,
+                    width: 100,
+                    height: 150,
+                  ),
+                  Container(
+                    color: Colors.red,
+                    width: 100,
+                    height: 150,
+                  ),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text("data"),
+                  Text("data"),
+                ],
+              ),
+              SizedBox(
+                height: 270,
+                child: GridView.builder(
+                    itemCount: 6,
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 3,
+                      childAspectRatio: 1,
+                      mainAxisSpacing: 8,
+                      crossAxisSpacing: 8,
+                    ),
+                    itemBuilder: (contex, index) {
+                      return Container(
+                        color: Colors.amberAccent,
+                      );
+                    }),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text("data"),
+                  Text("data"),
+                ],
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
