@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:bottom_animation/bottom_animation.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mobile_network_ui/components/home_components/available_balance.dart';
 import 'package:mobile_network_ui/components/home_components/profile_avatar.dart';
 import 'package:mobile_network_ui/resource/colors/colors.dart';
 
@@ -96,9 +97,11 @@ class DynamicBody extends StatelessWidget {
                   ),
                 ],
               ),
-              Container(
-                color: Colors.green,
-                height: 100,
+              AvailableBalance(
+                bgColor: AppColor.blue.withOpacity(.8),
+                widthSize: MediaQuery.of(context).size.width,
+                heightSize: 110,
+                borderRadius: 25,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
