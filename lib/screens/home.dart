@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:bottom_animation/bottom_animation.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mobile_network_ui/components/home_components/profile_avatar.dart';
 import 'package:mobile_network_ui/resource/colors/colors.dart';
 
 class Home extends StatefulWidget {
@@ -66,11 +67,31 @@ class DynamicBody extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  CircleAvatar(),
+                  ProfileAvatar(
+                    imgPath: 'assets/images/girl.jpg',
+                    picSize: 60,
+                  ),
                   Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('data'),
-                      Text('data'),
+                      Text(
+                        'Welcome Anahit',
+                        style: GoogleFonts.lato(
+                          textStyle: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 23,
+                          ),
+                        ),
+                      ),
+                      Text(
+                        '+44524332454',
+                        style: GoogleFonts.lato(
+                          textStyle: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 13,
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                 ],
