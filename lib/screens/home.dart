@@ -102,6 +102,8 @@ class DynamicBody extends StatelessWidget {
                 widthSize: MediaQuery.of(context).size.width,
                 heightSize: 110,
                 borderRadius: 25,
+                balance: 1400,
+                iconSize: 30,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
