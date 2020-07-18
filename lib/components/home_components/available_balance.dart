@@ -46,7 +46,7 @@ class AvailableBalance extends StatelessWidget {
                       ),
                     )),
                 Text(
-                  '$balance',
+                  '$balance AMD',
                   style: GoogleFonts.lato(
                     textStyle: TextStyle(
                       color: AppColor.background,

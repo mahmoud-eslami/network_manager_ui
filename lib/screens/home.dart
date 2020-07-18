@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:bottom_animation/bottom_animation.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mobile_network_ui/components/home_components/available_balance.dart';
+import 'package:mobile_network_ui/components/home_components/cart_view.dart';
 import 'package:mobile_network_ui/components/home_components/profile_avatar.dart';
 import 'package:mobile_network_ui/resource/colors/colors.dart';
 
@@ -108,21 +109,7 @@ class DynamicBody extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Container(
-                    color: Colors.blue,
-                    width: 100,
-                    height: 150,
-                  ),
-                  Container(
-                    color: Colors.yellow,
-                    width: 100,
-                    height: 150,
-                  ),
-                  Container(
-                    color: Colors.red,
-                    width: 100,
-                    height: 150,
-                  ),
+                  CardView(),
                 ],
               ),
               Row(
