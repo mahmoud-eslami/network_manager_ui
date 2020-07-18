@@ -109,14 +109,55 @@ class DynamicBody extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  CardView(),
+                  CardView(
+                    bgColor: AppColor.blue,
+                    count: 100,
+                    imgPath: 'assets/images/buss.png',
+                    heightSize: 160,
+                    widthSize: 120,
+                    borderRaduis: 20,
+                    title: 'asdasd',
+                    subTitle: 'asdasdasd',
+                  ),
+                  CardView(
+                    bgColor: AppColor.blue,
+                    count: 100,
+                    imgPath: 'assets/images/buss.png',
+                    heightSize: 160,
+                    widthSize: 120,
+                    borderRaduis: 20,
+                    title: 'asdasd',
+                    subTitle: 'asdasdasd',
+                  ),
+                  CardView(
+                    bgColor: AppColor.blue,
+                    count: 100,
+                    imgPath: 'assets/images/buss.png',
+                    heightSize: 160,
+                    widthSize: 120,
+                    borderRaduis: 20,
+                    title: 'asdasd',
+                    subTitle: 'asdasdasd',
+                  ),
                 ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("data"),
-                  Text("data"),
+                  Text(
+                    "data",
+                    style: TextStyle(
+                      fontWeight: FontWeight.w700,
+                      fontSize: 25,
+                    ),
+                  ),
+                  Text(
+                    "data",
+                    style: TextStyle(
+                      fontWeight: FontWeight.w700,
+                      fontSize: 19,
+                    ),
+                  ),
                 ],
               ),
               SizedBox(
@@ -138,8 +179,20 @@ class DynamicBody extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("data"),
-                  Text("data"),
+                  Text(
+                    "data",
+                    style: TextStyle(
+                      fontWeight: FontWeight.w700,
+                      fontSize: 25,
+                    ),
+                  ),
+                  Text(
+                    "data",
+                    style: TextStyle(
+                      fontWeight: FontWeight.w700,
+                      fontSize: 19,
+                    ),
+                  ),
                 ],
               ),
             ],

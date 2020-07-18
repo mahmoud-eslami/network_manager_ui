@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mobile_network_ui/resource/colors/colors.dart';
 
 class CardView extends StatelessWidget {
   final String title;
@@ -39,25 +40,42 @@ class CardView extends StatelessWidget {
           ),
         ),
       ),
-      child: Column(
-        children: [
-          Image.asset(
-            imgPath,
-            width: 60,
-          ),
-          Text(
-            title,
-            style: GoogleFonts.lato(textStyle: TextStyle()),
-          ),
-          Text(
-            '$count',
-            style: GoogleFonts.lato(textStyle: TextStyle()),
-          ),
-          Text(
-            subTitle,
-            style: GoogleFonts.lato(textStyle: TextStyle()),
-          ),
-        ],
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Image.asset(
+              imgPath,
+              width: 40,
+            ),
+            Text(
+              title,
+              style: GoogleFonts.lato(
+                  textStyle: TextStyle(
+                color: AppColor.background,
+                fontWeight: FontWeight.w700,
+              )),
+            ),
+            Text(
+              '$count',
+              style: GoogleFonts.lato(
+                  textStyle: TextStyle(
+                color: AppColor.background,
+                fontWeight: FontWeight.w700,
+              )),
+            ),
+            Text(
+              subTitle,
+              style: GoogleFonts.lato(
+                  textStyle: TextStyle(
+                color: AppColor.background,
+                fontWeight: FontWeight.w700,
+              )),
+            ),
+          ],
+        ),
       ),
     );
   }
