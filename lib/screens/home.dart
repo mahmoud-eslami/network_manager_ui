@@ -164,7 +164,7 @@ class DynamicBody extends StatelessWidget {
               SizedBox(
                 height: 270,
                 child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 10,vertical: 10),
+                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                   child: GridView.builder(
                       itemCount: 6,
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -178,16 +178,25 @@ class DynamicBody extends StatelessWidget {
                           padding: const EdgeInsets.all(8.0),
                           child: Container(
                             decoration: BoxDecoration(
-                              color: AppColor.background,
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(30),
-                              ),
-                              boxShadow: <BoxShadow>[
-                                BoxShadow(
-                                  color: AppColor.lightIndigo,
-                                  blurRadius: 10,
-                                )
-                              ]
+                                color: AppColor.background,
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(30),
+                                ),
+                                boxShadow: <BoxShadow>[
+                                  BoxShadow(
+                                    color: AppColor.lightIndigo,
+                                    blurRadius: 10,
+                                  )
+                                ]),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Image.asset(
+                                  'assets/images/buss.png',
+                                  width: 40,
+                                ),
+                                Text('asdasd')
+                              ],
                             ),
                           ),
                         );
