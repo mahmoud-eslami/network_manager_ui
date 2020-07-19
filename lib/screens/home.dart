@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:bottom_animation/bottom_animation.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -110,32 +111,32 @@ class DynamicBody extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   CardView(
-                    bgColor: AppColor.blue,
+                    bgColor: AppColor.blue.withOpacity(.9),
                     count: 100,
                     imgPath: 'assets/images/buss.png',
                     heightSize: 160,
                     widthSize: 120,
-                    borderRaduis: 20,
+                    borderRaduis: 25,
                     title: 'asdasd',
                     subTitle: 'asdasdasd',
                   ),
                   CardView(
-                    bgColor: AppColor.blue,
+                    bgColor: AppColor.dark,
                     count: 100,
-                    imgPath: 'assets/images/buss.png',
+                    imgPath: 'assets/images/chart.png',
                     heightSize: 160,
                     widthSize: 120,
-                    borderRaduis: 20,
+                    borderRaduis: 25,
                     title: 'asdasd',
                     subTitle: 'asdasdasd',
                   ),
                   CardView(
-                    bgColor: AppColor.blue,
+                    bgColor: AppColor.lightPurpule,
                     count: 100,
-                    imgPath: 'assets/images/buss.png',
+                    imgPath: 'assets/images/sales.png',
                     heightSize: 160,
                     widthSize: 120,
-                    borderRaduis: 20,
+                    borderRaduis: 25,
                     title: 'asdasd',
                     subTitle: 'asdasdasd',
                   ),
@@ -162,19 +163,36 @@ class DynamicBody extends StatelessWidget {
               ),
               SizedBox(
                 height: 270,
-                child: GridView.builder(
-                    itemCount: 6,
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 3,
-                      childAspectRatio: 1,
-                      mainAxisSpacing: 8,
-                      crossAxisSpacing: 8,
-                    ),
-                    itemBuilder: (contex, index) {
-                      return Container(
-                        color: Colors.amberAccent,
-                      );
-                    }),
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 10,vertical: 10),
+                  child: GridView.builder(
+                      itemCount: 6,
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 3,
+                        childAspectRatio: 1.1,
+                        mainAxisSpacing: 25,
+                        crossAxisSpacing: 20,
+                      ),
+                      itemBuilder: (context, index) {
+                        return Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: AppColor.background,
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(30),
+                              ),
+                              boxShadow: <BoxShadow>[
+                                BoxShadow(
+                                  color: AppColor.lightIndigo,
+                                  blurRadius: 10,
+                                )
+                              ]
+                            ),
+                          ),
+                        );
+                      }),
+                ),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
