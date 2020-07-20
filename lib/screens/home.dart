@@ -68,101 +68,127 @@ class DynamicBody extends StatelessWidget {
         child: Container(
           child: Column(
             children: [
-              Row(
-                children: [
-                  ProfileAvatar(
-                    imgPath: 'assets/images/girl.jpg',
-                    picSize: 60,
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Welcome Anahit',
-                        style: GoogleFonts.lato(
-                          textStyle: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 23,
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 15,
+                  vertical: 10,
+                ),
+                child: Row(
+                  children: [
+                    ProfileAvatar(
+                      imgPath: 'assets/images/girl.jpg',
+                      picSize: 60,
+                    ),
+                    SizedBox(
+                      width: 20,
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Welcome Anahit',
+                          style: GoogleFonts.lato(
+                            textStyle: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 23,
+                            ),
                           ),
                         ),
-                      ),
-                      Text(
-                        '+44524332454',
-                        style: GoogleFonts.lato(
-                          textStyle: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 13,
+                        Text(
+                          '+44524332454',
+                          style: GoogleFonts.lato(
+                            textStyle: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 13,
+                            ),
                           ),
                         ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 15,
+                  vertical: 10,
+                ),
+                child: AvailableBalance(
+                  bgColor: AppColor.blue.withOpacity(.8),
+                  widthSize: MediaQuery.of(context).size.width,
+                  heightSize: 100,
+                  borderRadius: 25,
+                  balance: 1400,
+                  iconSize: 30,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 15,
+                  vertical: 10,
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    CardView(
+                      bgColor: AppColor.blue.withOpacity(.9),
+                      count: 100,
+                      imgPath: 'assets/images/buss.png',
+                      heightSize: 160,
+                      widthSize: 110,
+                      borderRaduis: 25,
+                      title: 'asdasd',
+                      subTitle: 'asdasdasd',
+                    ),
+                    CardView(
+                      bgColor: AppColor.dark,
+                      count: 100,
+                      imgPath: 'assets/images/chart.png',
+                      heightSize: 160,
+                      widthSize: 110,
+                      borderRaduis: 25,
+                      title: 'asdasd',
+                      subTitle: 'asdasdasd',
+                    ),
+                    CardView(
+                      bgColor: AppColor.lightPurpule,
+                      count: 100,
+                      imgPath: 'assets/images/sales.png',
+                      heightSize: 160,
+                      widthSize: 110,
+                      borderRaduis: 25,
+                      title: 'asdasd',
+                      subTitle: 'asdasdasd',
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 15,
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Services",
+                      style: TextStyle(
+                        fontWeight: FontWeight.w700,
+                        fontSize: 20,
                       ),
-                    ],
-                  ),
-                ],
-              ),
-              AvailableBalance(
-                bgColor: AppColor.blue.withOpacity(.8),
-                widthSize: MediaQuery.of(context).size.width,
-                heightSize: 110,
-                borderRadius: 25,
-                balance: 1400,
-                iconSize: 30,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  CardView(
-                    bgColor: AppColor.blue.withOpacity(.9),
-                    count: 100,
-                    imgPath: 'assets/images/buss.png',
-                    heightSize: 160,
-                    widthSize: 120,
-                    borderRaduis: 25,
-                    title: 'asdasd',
-                    subTitle: 'asdasdasd',
-                  ),
-                  CardView(
-                    bgColor: AppColor.dark,
-                    count: 100,
-                    imgPath: 'assets/images/chart.png',
-                    heightSize: 160,
-                    widthSize: 120,
-                    borderRaduis: 25,
-                    title: 'asdasd',
-                    subTitle: 'asdasdasd',
-                  ),
-                  CardView(
-                    bgColor: AppColor.lightPurpule,
-                    count: 100,
-                    imgPath: 'assets/images/sales.png',
-                    heightSize: 160,
-                    widthSize: 120,
-                    borderRaduis: 25,
-                    title: 'asdasd',
-                    subTitle: 'asdasdasd',
-                  ),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    "data",
-                    style: TextStyle(
-                      fontWeight: FontWeight.w700,
-                      fontSize: 25,
                     ),
-                  ),
-                  Text(
-                    "data",
-                    style: TextStyle(
-                      fontWeight: FontWeight.w700,
-                      fontSize: 19,
+                    Text(
+                      "More Options",
+                      style: TextStyle(
+                        fontWeight: FontWeight.w700,
+                        fontSize: 17,
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
               SizedBox(
-                height: 270,
+                height: 220,
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                   child: GridView.builder(
@@ -170,8 +196,8 @@ class DynamicBody extends StatelessWidget {
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 3,
                         childAspectRatio: 1.1,
-                        mainAxisSpacing: 25,
-                        crossAxisSpacing: 20,
+                        mainAxisSpacing: 2,
+                        crossAxisSpacing: 25,
                       ),
                       itemBuilder: (context, index) {
                         return Padding(
@@ -180,7 +206,7 @@ class DynamicBody extends StatelessWidget {
                             decoration: BoxDecoration(
                                 color: AppColor.background,
                                 borderRadius: BorderRadius.all(
-                                  Radius.circular(30),
+                                  Radius.circular(20),
                                 ),
                                 boxShadow: <BoxShadow>[
                                   BoxShadow(
@@ -195,7 +221,12 @@ class DynamicBody extends StatelessWidget {
                                   'assets/images/buss.png',
                                   width: 40,
                                 ),
-                                Text('asdasd')
+                                Text(
+                                  'Tools',
+                                  style: TextStyle(
+                                    fontSize: 13,
+                                  ),
+                                )
                               ],
                             ),
                           ),
@@ -203,24 +234,29 @@ class DynamicBody extends StatelessWidget {
                       }),
                 ),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    "data",
-                    style: TextStyle(
-                      fontWeight: FontWeight.w700,
-                      fontSize: 25,
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 15,
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Most View Plans",
+                      style: TextStyle(
+                        fontWeight: FontWeight.w700,
+                        fontSize: 20,
+                      ),
                     ),
-                  ),
-                  Text(
-                    "data",
-                    style: TextStyle(
-                      fontWeight: FontWeight.w700,
-                      fontSize: 19,
+                    Text(
+                      "View all",
+                      style: TextStyle(
+                        fontWeight: FontWeight.w700,
+                        fontSize: 15,
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ],
           ),
