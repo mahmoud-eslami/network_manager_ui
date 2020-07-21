@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:mobile_network_ui/components/home_components/available_balance.dart';
 import 'package:mobile_network_ui/components/home_components/cart_view.dart';
 import 'package:mobile_network_ui/components/home_components/profile_avatar.dart';
+import 'package:mobile_network_ui/data/model/home_grid_item.dart';
 import 'package:mobile_network_ui/resource/colors/colors.dart';
 
 class Home extends StatefulWidget {
@@ -13,6 +14,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+
   List<BottomNavItem> items = [
     BottomNavItem(title: 'Home', iconData: Icons.home),
     BottomNavItem(title: 'Call', iconData: Icons.call),
@@ -61,6 +63,14 @@ class _HomeState extends State<Home> {
 }
 
 class DynamicBody extends StatelessWidget {
+  List<HomeGridItem> gridItems = [
+    HomeGridItem(imgPath: 'assets/images/cloud.png', title: 'Roaming'),
+    HomeGridItem(imgPath: 'assets/images/fire.png', title: 'Ucom unit'),
+    HomeGridItem(imgPath: 'assets/images/internet.png', title: 'Bundles'),
+    HomeGridItem(imgPath: 'assets/images/profile.png', title: 'More options'),
+    HomeGridItem(imgPath: 'assets/images/protection.png', title: 'Reserve visit'),
+    HomeGridItem(imgPath: 'assets/images/share.png', title: 'Tariff plans'),
+  ];
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -218,11 +228,11 @@ class DynamicBody extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
                                 Image.asset(
-                                  'assets/images/buss.png',
+                                  gridItems[index].imgPath,
                                   width: 40,
                                 ),
                                 Text(
-                                  'Tools',
+                                  gridItems[index].title,
                                   style: TextStyle(
                                     fontSize: 13,
                                   ),
