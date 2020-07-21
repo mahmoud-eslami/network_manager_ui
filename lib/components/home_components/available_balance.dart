@@ -24,7 +24,39 @@ class AvailableBalance extends StatefulWidget {
   _AvailableBalanceState createState() => _AvailableBalanceState();
 }
 
-class _AvailableBalanceState extends State<AvailableBalance> {
+class _AvailableBalanceState extends State<AvailableBalance>
+    with TickerProviderStateMixin {
+
+  AnimationController sizeController;
+
+  Animation<double> sizeAnimation;
+  Animation<Color> colorAnimation;
+
+  @override
+  void initState() {
+    sizeController =
+    AnimationController(vsync: this, duration: Duration(milliseconds: 1500))
+      ..repeat(reverse: true);
+    sizeAnimation = Tween<double>(begin: .6, end: 1).animate(CurvedAnimation(
+      curve: Interval(0.0, 1.0, curve: Curves.ease),
+      parent: sizeController,
+    ));
+    colorAnimation =
+        ColorTween(begin: AppColor.dark, end: widget.bgColor.withOpacity(.8))
+            .animate(CurvedAnimation(
+          curve: Interval(0.0, 1.0, curve: Curves.ease),
+          parent: sizeController,
+        ));
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    sizeController.dispose();
+    super.dispose();
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -63,18 +95,21 @@ class _AvailableBalanceState extends State<AvailableBalance> {
                 ),
               ],
             ),
-            Container(
-              width: 50,
-              height: 50,
-              decoration: BoxDecoration(
-                color: AppColor.background,
-                shape: BoxShape.circle,
-              ),
-              child: Center(
-                child: Icon(
-                  Icons.add,
-                  color: widget.bgColor,
-                  size: widget.iconSize,
+            ScaleTransition(
+              scale: sizeAnimation,
+              child: Container(
+                width: 50,
+                height: 50,
+                decoration: BoxDecoration(
+                  color: AppColor.background,
+                  shape: BoxShape.circle,
+                ),
+                child: Center(
+                  child: Icon(
+                    Icons.add,
+                    color: widget.bgColor,
+                    size: widget.iconSize,
+                  ),
                 ),
               ),
             ),
