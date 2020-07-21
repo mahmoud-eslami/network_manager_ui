@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_network_ui/components/profile_page_components/cardnumber_widget/card_number.dart';
+import 'package:mobile_network_ui/resource/colors/colors.dart';
 
 class ProfilePage extends StatefulWidget {
   final Animation<double> transactionAnimation;
@@ -47,7 +49,7 @@ class _DynamicBodyState extends State<_DynamicBody> {
   Widget build(BuildContext context) {
     return Container(
       child: Center(
-        child: Text('asdasdasdasd'),
+        child: CardNumber(name: 'asdads',bkColor: AppColor.blue,),
       ),
     );
   }
