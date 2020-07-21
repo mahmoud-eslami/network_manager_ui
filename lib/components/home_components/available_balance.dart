@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mobile_network_ui/resource/colors/colors.dart';
 
-class AvailableBalance extends StatelessWidget {
+class AvailableBalance extends StatefulWidget {
   final int balance;
   final Color bgColor;
   final double heightSize;
@@ -19,15 +19,21 @@ class AvailableBalance extends StatelessWidget {
     this.widthSize,
     this.iconSize,
   }) : super(key: key);
+
+  @override
+  _AvailableBalanceState createState() => _AvailableBalanceState();
+}
+
+class _AvailableBalanceState extends State<AvailableBalance> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: widthSize,
-      height: heightSize,
+      width: widget.widthSize,
+      height: widget.heightSize,
       decoration: BoxDecoration(
-        color: bgColor,
+        color: widget.bgColor,
         borderRadius: BorderRadius.all(
-          Radius.circular(borderRadius),
+          Radius.circular(widget.borderRadius),
         ),
       ),
       child: Padding(
@@ -46,7 +52,7 @@ class AvailableBalance extends StatelessWidget {
                       ),
                     )),
                 Text(
-                  '$balance AMD',
+                  '${widget.balance} AMD',
                   style: GoogleFonts.lato(
                     textStyle: TextStyle(
                       color: AppColor.background,
@@ -67,8 +73,8 @@ class AvailableBalance extends StatelessWidget {
               child: Center(
                 child: Icon(
                   Icons.add,
-                  color: bgColor,
-                  size: iconSize,
+                  color: widget.bgColor,
+                  size: widget.iconSize,
                 ),
               ),
             ),

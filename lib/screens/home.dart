@@ -14,7 +14,6 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-
   List<BottomNavItem> items = [
     BottomNavItem(title: 'Home', iconData: Icons.home),
     BottomNavItem(title: 'Call', iconData: Icons.call),
@@ -62,15 +61,51 @@ class _HomeState extends State<Home> {
   }
 }
 
-class DynamicBody extends StatelessWidget {
-  List<HomeGridItem> gridItems = [
+class DynamicBody extends StatefulWidget {
+  @override
+  _DynamicBodyState createState() => _DynamicBodyState();
+}
+
+class _DynamicBodyState extends State<DynamicBody>
+    with TickerProviderStateMixin {
+  final List<HomeGridItem> gridItems = [
     HomeGridItem(imgPath: 'assets/images/cloud.png', title: 'Roaming'),
     HomeGridItem(imgPath: 'assets/images/fire.png', title: 'Ucom unit'),
     HomeGridItem(imgPath: 'assets/images/internet.png', title: 'Bundles'),
     HomeGridItem(imgPath: 'assets/images/profile.png', title: 'More options'),
-    HomeGridItem(imgPath: 'assets/images/protection.png', title: 'Reserve visit'),
+    HomeGridItem(
+        imgPath: 'assets/images/protection.png', title: 'Reserve visit'),
     HomeGridItem(imgPath: 'assets/images/share.png', title: 'Tariff plans'),
   ];
+  AnimationController opacityController;
+
+  Animation<double> opacityAnimation;
+  Animation<Color> colorAnimation;
+
+  @override
+  void initState() {
+    opacityController =
+        AnimationController(vsync: this, duration: Duration(milliseconds: 1500))
+          ..forward();
+    opacityAnimation = Tween<double>(begin: 0, end: 1).animate(CurvedAnimation(
+      curve: Interval(0.0, .5, curve: Curves.linear),
+      parent: opacityController,
+    ));
+    colorAnimation =
+        ColorTween(begin: AppColor.dark, end: AppColor.blue.withOpacity(.8))
+            .animate(CurvedAnimation(
+      curve: Interval(.5, 1.0, curve: Curves.ease),
+      parent: opacityController,
+    ));
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    opacityController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -83,39 +118,42 @@ class DynamicBody extends StatelessWidget {
                   horizontal: 15,
                   vertical: 10,
                 ),
-                child: Row(
-                  children: [
-                    ProfileAvatar(
-                      imgPath: 'assets/images/girl.jpg',
-                      picSize: 60,
-                    ),
-                    SizedBox(
-                      width: 20,
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Welcome Anahit',
-                          style: GoogleFonts.lato(
-                            textStyle: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 23,
+                child: FadeTransition(
+                  opacity: opacityAnimation,
+                  child: Row(
+                    children: [
+                      ProfileAvatar(
+                        imgPath: 'assets/images/girl.jpg',
+                        picSize: 60,
+                      ),
+                      SizedBox(
+                        width: 20,
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Welcome Anahit',
+                            style: GoogleFonts.lato(
+                              textStyle: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 23,
+                              ),
                             ),
                           ),
-                        ),
-                        Text(
-                          '+44524332454',
-                          style: GoogleFonts.lato(
-                            textStyle: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 13,
+                          Text(
+                            '+44524332454',
+                            style: GoogleFonts.lato(
+                              textStyle: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 13,
+                              ),
                             ),
                           ),
-                        ),
-                      ],
-                    ),
-                  ],
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
               Padding(
