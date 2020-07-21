@@ -7,6 +7,7 @@ import 'package:mobile_network_ui/components/home_components/cart_view.dart';
 import 'package:mobile_network_ui/components/home_components/profile_avatar.dart';
 import 'package:mobile_network_ui/data/model/home_grid_item.dart';
 import 'package:mobile_network_ui/resource/colors/colors.dart';
+import 'package:mobile_network_ui/screens/profile.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -161,13 +162,28 @@ class _DynamicBodyState extends State<DynamicBody>
                   horizontal: 15,
                   vertical: 10,
                 ),
-                child: AvailableBalance(
-                  bgColor: AppColor.blue.withOpacity(.8),
-                  widthSize: MediaQuery.of(context).size.width,
-                  heightSize: 100,
-                  borderRadius: 25,
-                  balance: 1400,
-                  iconSize: 30,
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      PageRouteBuilder(
+                        pageBuilder: (context, animation, secondaryAnimation) {
+                          return ProfilePage(
+                            transactionAnimation: animation,
+                          );
+                        },
+                        transitionDuration: Duration(milliseconds: 900),
+                      ),
+                    );
+                  },
+                  child: AvailableBalance(
+                    bgColor: AppColor.blue.withOpacity(.8),
+                    widthSize: MediaQuery.of(context).size.width,
+                    heightSize: 100,
+                    borderRadius: 25,
+                    balance: 1400,
+                    iconSize: 30,
+                  ),
                 ),
               ),
               Padding(
