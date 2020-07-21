@@ -58,7 +58,7 @@ class CardView extends StatelessWidget {
               style: GoogleFonts.lato(
                   textStyle: TextStyle(
                 color: AppColor.background,
-                fontWeight: FontWeight.w700,
+                fontWeight: FontWeight.w500,
               )),
             ),
             Text(
@@ -67,6 +67,7 @@ class CardView extends StatelessWidget {
                   textStyle: TextStyle(
                 color: AppColor.background,
                 fontWeight: FontWeight.w700,
+                    fontSize: 20,
               )),
             ),
             Text(
@@ -74,7 +75,7 @@ class CardView extends StatelessWidget {
               style: GoogleFonts.lato(
                   textStyle: TextStyle(
                 color: AppColor.background,
-                fontWeight: FontWeight.w700,
+                fontWeight: FontWeight.w300,
               )),
             ),
           ],
