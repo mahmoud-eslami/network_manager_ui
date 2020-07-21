@@ -141,7 +141,7 @@ class DynamicBody extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     CardView(
-                      bgColor: AppColor.blue.withOpacity(.9),
+                      bgColor: AppColor.blue.withOpacity(.3),
                       count: 523,
                       imgPath: 'assets/images/buss.png',
                       heightSize: 160,
@@ -151,7 +151,7 @@ class DynamicBody extends StatelessWidget {
                       subTitle: 'From 1000',
                     ),
                     CardView(
-                      bgColor: AppColor.dark,
+                      bgColor: AppColor.dark.withOpacity(.4),
                       count: 8,
                       imgPath: 'assets/images/chart.png',
                       heightSize: 160,
@@ -161,7 +161,7 @@ class DynamicBody extends StatelessWidget {
                       subTitle: 'From 10Gb',
                     ),
                     CardView(
-                      bgColor: AppColor.lightPurpule,
+                      bgColor: AppColor.lightPurpule.withOpacity(.5),
                       count: 1020,
                       imgPath: 'assets/images/sales.png',
                       heightSize: 160,
