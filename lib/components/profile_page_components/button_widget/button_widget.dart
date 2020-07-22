@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class CustomButton extends StatefulWidget {
-  final String title;
+  final Widget title;
   final Function onPress;
   final Color btnColor;
   final double width;
@@ -30,16 +29,12 @@ class _CustomButtonState extends State<CustomButton> {
       width: widget.width,
       height: widget.height,
       child: RaisedButton(
+        color: widget.btnColor,
         onPressed: () {},
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(25)),
         ),
-        child: Text(
-          widget.title,
-          style: GoogleFonts.lato(
-            fontSize: widget.titleSize,
-          ),
-        ),
+        child: widget.title,
       ),
     );
   }
