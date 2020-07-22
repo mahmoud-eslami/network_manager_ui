@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:mobile_network_ui/resource/colors/colors.dart';
 
 class CardNumber extends StatefulWidget {
@@ -40,6 +42,55 @@ class _CardNumberState extends State<CardNumber> {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.horizontal(left: Radius.circular(30)),
               color: widget.bkColor.withOpacity(.75),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    width: 100,
+                    height: 30,
+                    child: Stack(
+                      children: [
+                        Container(
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: AppColor.background.withOpacity(.5),
+                          ),
+                        ),
+                        Container(
+                          width: 60,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: AppColor.background,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    child: Text(
+                      widget.name,
+                      style: GoogleFonts.lato(
+                        fontSize: 20,
+                        textStyle: TextStyle(color: AppColor.background),
+                        fontWeight: FontWeight.w800,
+                      ),
+                    ),
+                  ),
+                  Text(
+                    '1123\t\t2343\t\t1243\t\t23314',
+                    style: GoogleFonts.lato(
+                      fontSize: 17,
+                      textStyle: TextStyle(color: AppColor.background),
+                      fontWeight: FontWeight.w300,
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
           Container(

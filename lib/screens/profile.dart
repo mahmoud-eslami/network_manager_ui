@@ -49,7 +49,7 @@ class _DynamicBodyState extends State<_DynamicBody> {
   Widget build(BuildContext context) {
     return Container(
       child: Center(
-        child: CardNumber(name: 'asdads',bkColor: AppColor.blue,),
+        child: CardNumber(name: 'Mahmoud',bkColor: AppColor.blue,),
       ),
     );
   }
