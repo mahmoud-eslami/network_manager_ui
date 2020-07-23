@@ -21,6 +21,7 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColor.background,
       body: SafeArea(
         child: AnimatedBuilder(
           animation: widget.transactionAnimation,
@@ -67,109 +68,192 @@ class _DynamicBodyState extends State<_DynamicBody> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Padding(
-          padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Text(
-                'Payment methods',
-                style: GoogleFonts.lato(
-                  fontWeight: FontWeight.w800,
-                  fontSize: 23,
-                ),
-              ),
-              CustomButton(
-                height: 25,
-                width: 80,
-                btnColor: AppColor.blue.withOpacity(.8),
-                onPress: () {},
-                title: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Icon(
-                      Icons.add,
-                      color: AppColor.background,
-                      size: 10,
-                    ),
-                    Text(
-                      'Add',
-                      style: GoogleFonts.lato(
-                        color: AppColor.background,
-                        fontSize: 13,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ),
-        SizedBox(
-          height: 250,
-          child: CarouselSlider(
-            items: cardList,
-            options: CarouselOptions(
-              autoPlay: true,
-              disableCenter: false,
-              enlargeCenterPage: true,
-              viewportFraction: .9,
-              aspectRatio: 2.0,
-              initialPage: 1,
-            ),
-          ),
-        ),
-        Container(
-          width: double.infinity,
-          decoration: BoxDecoration(
-              color: AppColor.background,
-              borderRadius: BorderRadius.all(Radius.circular(25)),
-              boxShadow: <BoxShadow>[
-                BoxShadow(color: AppColor.dark.withOpacity(.5)),
-              ]),
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text('0 AMD'),
-          ),
-        ),
-        Container(
-          width: double.infinity,
-          decoration: BoxDecoration(
-              color: AppColor.background,
-              borderRadius: BorderRadius.all(Radius.circular(25)),
-              boxShadow: <BoxShadow>[
-                BoxShadow(color: AppColor.dark.withOpacity(.5)),
-              ]),
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              crossAxisAlignment: CrossAxisAlignment.start,
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Text('Mobile Phone'),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text('Telephone number'),
-                    Text('0541236127'),
-                  ],
+                Text(
+                  'Payment methods',
+                  style: GoogleFonts.lato(
+                    fontWeight: FontWeight.w800,
+                    fontSize: 23,
+                  ),
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-
-                  children: [
-                    Text('Debt Amount'),
-                    Text('0.00 AMD'),
-                  ],
+                CustomButton(
+                  height: 25,
+                  width: 80,
+                  btnColor: AppColor.blue.withOpacity(.8),
+                  onPress: () {},
+                  title: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Icon(
+                        Icons.add,
+                        color: AppColor.background,
+                        size: 10,
+                      ),
+                      Text(
+                        'Add',
+                        style: GoogleFonts.lato(
+                          color: AppColor.background,
+                          fontSize: 13,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
           ),
-        ),
-      ],
+          SizedBox(
+            height: 20,
+          ),
+          SizedBox(
+            height: 250,
+            child: CarouselSlider(
+              items: cardList,
+              options: CarouselOptions(
+                autoPlay: true,
+                disableCenter: false,
+                enlargeCenterPage: true,
+                viewportFraction: .9,
+                aspectRatio: 2.0,
+                initialPage: 1,
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 80,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Container(
+              width: double.infinity,
+              decoration: BoxDecoration(
+                  color: AppColor.background,
+                  borderRadius: BorderRadius.all(Radius.circular(15)),
+                  boxShadow: <BoxShadow>[
+                    BoxShadow(
+                      color: AppColor.dark.withOpacity(.2),
+                      spreadRadius: 2,
+                      blurRadius: 15,
+                    ),
+                  ]),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+                child: Text(
+                  '0 AMD',
+                  style: GoogleFonts.lato(
+                    fontSize: 20,
+                    color: AppColor.dark,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 30,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Container(
+              width: double.infinity,
+              decoration: BoxDecoration(
+                  color: AppColor.background,
+                  borderRadius: BorderRadius.all(Radius.circular(15)),
+                  boxShadow: <BoxShadow>[
+                    BoxShadow(
+                      color: AppColor.dark.withOpacity(.2),
+                      spreadRadius: 2,
+                      blurRadius: 15,
+                    ),
+                  ]),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 15,horizontal: 20),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Mobile Phone',
+                      style: GoogleFonts.lato(
+                        fontSize: 20,
+                        color: AppColor.dark,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(height: 20,),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'Telephone number',
+                          style: GoogleFonts.lato(
+                            fontSize: 15,
+                            color: AppColor.dark,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        Text(
+                          '0541236127',
+                          style: GoogleFonts.lato(
+                            fontSize: 15,
+                            color: AppColor.dark,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'Debt Amount',
+                          style: GoogleFonts.lato(
+                            fontSize: 15,
+                            color: AppColor.dark,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        Text(
+                          '0.00 AMD',
+                          style: GoogleFonts.lato(
+                            fontSize: 15,
+                            color: AppColor.dark,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 70,
+          ),
+          CustomButton(
+            onPress: () {},
+            btnColor: AppColor.blue.withOpacity(.7),
+            title: Text(
+              'Pay Now',
+              style: GoogleFonts.lato(
+                fontSize: 20,
+                color: AppColor.background,
+              ),
+            ),
+            width: MediaQuery.of(context).size.width / 1.8,
+            height: 45,
+          ),
+        ],
+      ),
     );
   }
 }
